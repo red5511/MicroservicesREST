@@ -1,0 +1,59 @@
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: password123
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/postgres
+    ports:
+      - "5433:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - postgres
+    restart: unless-stopped
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+
+
+  #zookeeper:
+  #  image: wurstmeister/zookeeper
+  #  container_name: zookeeper
+  #  ports:
+  #    - "2181:2181"
+  #kafka:
+  #  image: wurstmeister/kafka
+  #  container_name: kafka
+  #  ports:
+  #    - "9092:9092"
+  #  environment:
+  #    KAFKA_ADVERTISED_HOST_NAME: localhost
+  #    KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:

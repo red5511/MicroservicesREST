@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: movie
+  datasource:
+    password: 'password123'
+    url: jdbc:postgresql://localhost:5433/movie
+    username: 'dbuser'
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  kafka:
+    bootstrap-servers: "[::1]:9092"
+  zipkin:
+    base-url: http://localhost:9411
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

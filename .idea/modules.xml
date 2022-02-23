@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/apiGateway/apiGateway.iml" filepath="$PROJECT_DIR$/apiGateway/apiGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eurekaServer/eurekaServer.iml" filepath="$PROJECT_DIR$/eurekaServer/eurekaServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafkaConsumer/kafkaConsumer.iml" filepath="$PROJECT_DIR$/kafkaConsumer/kafkaConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices.iml" filepath="$PROJECT_DIR$/microservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/movie/movie.iml" filepath="$PROJECT_DIR$/movie/movie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/omdbapi/omdbapi.iml" filepath="$PROJECT_DIR$/omdbapi/omdbapi.iml" />
+    </modules>
+  </component>
+</project>
